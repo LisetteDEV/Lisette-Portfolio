@@ -89,62 +89,68 @@ const Contact = () => {
         )}
 
         {/* ---------- SECTION CONTACT DIRECT ---------- */}
-        <motion.div
-          className="mt-12 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 relative overflow-hidden"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Glow light effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 blur-2xl opacity-40 pointer-events-none" />
+<motion.div
+  className="mt-12 bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 relative overflow-hidden"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+>
+  {/* Glow light effect */}
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 blur-2xl opacity-40 pointer-events-none" />
 
-          <h3 className="text-2xl font-semibold mb-6 text-blue-600 relative z-10">
-            Mes contacts directs
-          </h3>
+  <h3 className="text-2xl sm:text-3xl font-semibold mb-8 text-blue-600 relative z-10 text-center">
+    Mes contacts directs
+  </h3>
 
-          <motion.div
-            className="grid md:grid-cols-2 gap-6 relative z-10"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            transition={{ staggerChildren: 0.2 }}
-          >
-            {/* Téléphone */}
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-4 p-5 bg-gray-100 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-blue-500/30 transition hover:scale-[1.03] border border-transparent hover:border-blue-500/40"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="p-3 bg-blue-600 text-white rounded-full shadow-lg">
-                <Phone size={24} />
-              </div>
-              <div className="text-left">
-                <p className="text-lg font-semibold">Téléphone</p>
-                <p className="text-gray-700 dark:text-gray-300">
-                +229  0154306699
-                </p>
-              </div>
-            </motion.div>
+  <motion.div
+    className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 relative z-10"
+    variants={{
+      hidden: { opacity: 0 },
+      show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.2 }
+      }
+    }}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+  >
+    {/* Téléphone */}
+    <motion.div
+      variants={itemVariants}
+      className="flex flex-col sm:flex-row items-center gap-4 p-6 bg-gray-100 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-blue-500/30 transition hover:scale-[1.03] border border-transparent hover:border-blue-500/40"
+      whileHover={{ scale: 1.05 }}
+    >
+      <div className="p-4 bg-blue-600 text-white rounded-full shadow-lg flex-shrink-0">
+        <Phone size={28} />
+      </div>
+      <div className="text-center sm:text-left mt-2 sm:mt-0">
+        <p className="text-lg font-semibold">Téléphone</p>
+        <p className="text-gray-700 dark:text-gray-300 break-all">
+          +229 0154306699
+        </p>
+      </div>
+    </motion.div>
 
-            {/* Email */}
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-4 p-5 bg-gray-100 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-blue-500/30 transition hover:scale-[1.03] border border-transparent hover:border-blue-500/40"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="p-3 bg-blue-600 text-white rounded-full shadow-lg">
-                <Mail size={24} />
-              </div>
-              <div className="text-left">
-                <p className="text-lg font-semibold">Email</p>
-                <p className="text-gray-700 dark:text-gray-300">
-                  obognonlisette@gmail.com
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+    {/* Email */}
+    <motion.div
+      variants={itemVariants}
+      className="flex flex-col sm:flex-row items-center gap-4 p-6 bg-gray-100 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-blue-500/30 transition hover:scale-[1.03] border border-transparent hover:border-blue-500/40"
+      whileHover={{ scale: 1.05 }}
+    >
+      <div className="p-4 bg-blue-600 text-white rounded-full shadow-lg flex-shrink-0">
+        <Mail size={28} />
+      </div>
+      <div className="text-center sm:text-left mt-2 sm:mt-0">
+        <p className="text-lg font-semibold">Email</p>
+        <p className="text-gray-700 dark:text-gray-300 break-all">
+          obognonlisette@gmail.com
+        </p>
+      </div>
+    </motion.div>
+  </motion.div>
+</motion.div>
       </div>
     </section>
   );
